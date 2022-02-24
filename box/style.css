@@ -1,0 +1,23 @@
+/* .box {
+  width: 300px;
+  height: 200px;
+  padding-top: 20px;
+  border: 1px solid #212112;
+  margin-top: 30px;
+} */
+
+.box {
+  width: 300px;
+  height: 200px;
+  /* padding-left: 30px;
+  padding-top: 20px; */
+  padding: 10px 20px 30px 40px;
+  background-color: hotpink;
+  /* border: 2px solid #000; */
+  border-bottom: 2px solid #000;
+  /* border-radius: 50%; */
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  /* margin-bottom: 40px; */
+  margin: 20px 40px;
+}
