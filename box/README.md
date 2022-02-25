@@ -127,3 +127,197 @@ margin은 top, bottom은 20, right, left는 40px.
 <img width="198" alt="스크린샷 2022-02-24 오후 12 35 26" src="https://user-images.githubusercontent.com/86224851/155453240-e7ecb37e-37d7-423d-913f-96c1471c5be8.png">
 
 코드 설명을 했던 것과 동일한 결과가 나온 것을 볼 수 있다.
+
+## 🙋🏻 Box Sizing
+
+앞서 우린 아래와 같은 box model을 공부했다.
+
+<img width="996" alt="스크린샷 2022-02-24 오전 10 12 05" src="https://user-images.githubusercontent.com/86224851/155438040-8522c5b8-fb5a-461d-b30f-90051767b546.png">
+
+만약 내가 width가 480px, height가 480px, padding-top이 40px, padding-left가 50px인 box를 만들고자한다면 당연하게도 아래와 같이 코딩을 할 것이다.
+
+```css
+.box {
+  width: 480px;
+  height: 480px;
+  padding-top: 40px;
+  padding-left: 50px;
+}
+```
+
+과연 내가 원하는대로 480px 정사각형 box가 생성되었을까?  
+개발자 도구로 확인해보자.
+
+<img width="180" alt="스크린샷 2022-02-25 오후 7 08 38" src="https://user-images.githubusercontent.com/86224851/155696561-3e99398e-7b8b-4b58-ab93-8ca3d3abfe40.png">
+
+<img width="176" alt="스크린샷 2022-02-25 오후 7 09 16" src="https://user-images.githubusercontent.com/86224851/155696679-4f45daa5-867a-42b5-92f3-36e7af01dd06.png">
+
+**원하는대로 나오지않았다.**  
+입력했던 width, height는 content 부분에 적용되어 있고, 입력한 padding 값과 합쳐져서 결국 box의 실제 크기는 width가 530px, height가 520px이 되어버렸다.  
+이는 HTML에서 작성되는 모든 태그들은 box-sizing이 content-box이기 때문에 발생하는 문제이다.
+
+box-sizing이란 어떤 속성일까?  
+content-box를 속성값으로 사용하면 코드로 입력한 width, height 값이 content 영역의 넓이, 높이가 된다.  
+border-box를 속성값으로 사용하면 코드로 입력한 width, height 값이 border 영역까지 포함된 넓이, 높이가 된다.
+
+위에서 내가 원하는대로 box 크기가 조절되지않았던 이유를 알게되었다.  
+그러면 border-box를 적용해보자.  
+CSS 코드를 아래와 같이 수정하겠다.
+
+```css
+.box {
+  width: 480px;
+  height: 480px;
+  padding-top: 40px;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+```
+
+결과는 어떻게 나올까? 개발자 도구로 살펴보자.
+
+<img width="181" alt="스크린샷 2022-02-25 오후 7 22 55" src="https://user-images.githubusercontent.com/86224851/155698618-884c60a5-7f73-4c8a-828c-55ce12e05e77.png">
+
+<img width="277" alt="스크린샷 2022-02-25 오후 7 23 19" src="https://user-images.githubusercontent.com/86224851/155698684-1dedd548-b6de-4a5c-82fc-1bf728b0f063.png">
+
+모든 코드가 그대로인 상황에서 box-sizing 속성만 border-box 값으로 설정했다.  
+content 부분의 width, height가 자동적으로 padding 값과 연산되어 480px이 되도록 조절된 것이 확인됐다.  
+border 부분까지 포함된 width, height로 변경된 것이다!  
+border까지 추가해보자.
+
+```css
+.box {
+  width: 480px;
+  height: 480px;
+  padding-top: 40px;
+  padding-left: 50px;
+  box-sizing: border-box;
+  border: 2px solid black;
+}
+```
+
+<img width="186" alt="스크린샷 2022-02-25 오후 7 26 43" src="https://user-images.githubusercontent.com/86224851/155699228-f17096f0-dc18-4c2b-988d-d118685b9b33.png">
+
+border, padding, content 부분을 모두 합쳐서 480px이 되도록 변경되었다.  
+이렇게 **box-sizing: border-box;** 를 사용하면 훨씬 더 직관적이게 box를 만들 수 있다.  
+따라서 많은 개발자들이 CSS를 시작할 때 아래 코드와 같이 전체 태그에 이를 적용하고 시작한다고 한다.
+
+```css
+* {
+  box-sizing: border-box;
+}
+```
+
+\* 표시는 모든 태그를 선택하는 전체 선택자이다.
+
+## 🙋🏻 Display
+
+모든 HTML 요소는 display 속성을 가지고 있다.  
+**display** 속성은 box의 type을 결정해준다.
+어떤 값이 어떤 기능을 가지고 있는지 지금부터 살펴보자.
+
+## Block
+
+block 값을 가장 잘 설명하는 것은 "길막"이다.  
+이 값은 자신을 제외한 다른 요소가 자기와 같은 줄에 서는 것을 용납하지 않기 때문이다.
+예시를 보면서 설명하겠다. 아래와 같은 HTML 코드가 있다.  
+div 태그는 display 속성의 값이 block이다.
+
+```html
+<body>
+  <div class="parent">
+    <div class="child">child</div>
+    <div class="other">other</div>
+  </div>
+</body>
+```
+
+구분하기 쉽게 색상을 추가했다.
+
+<img width="885" alt="스크린샷 2022-02-25 오후 8 25 08" src="https://user-images.githubusercontent.com/86224851/155707370-e15f2865-20ea-4b59-9c16-5d6eaa843fc7.png">
+
+div 태그 하나가 화면의 한 줄을 모두 차지하고 있는 것을 볼 수 있다.  
+이는 block이 별도로 width 값을 지정하지않으면 자동적으로 "부모의 content-box의 100% = 자신의 width"를 선언하기 때문이다.  
+그렇다면 width를 설정하면 어떨까?
+
+```css
+.child {
+  width: 500px;
+}
+
+.other {
+  width: 100px;
+}
+```
+
+<img width="886" alt="스크린샷 2022-02-25 오후 8 29 10" src="https://user-images.githubusercontent.com/86224851/155707892-d3b4b955-9416-400f-88aa-8202da0b8843.png">
+
+여전히 한 줄을 차지하고 있으며, 남은 공간을 자동으로 margin으로 처리한다.  
+참고로 이렇게 생긴 margin은 개발자 도구에 보이지않으므로 이 속성의 특징을 잘 알아두자!
+width에 대한 특징은 알았으니, height를 살펴보자.
+
+<img width="885" alt="스크린샷 2022-02-25 오후 8 34 20" src="https://user-images.githubusercontent.com/86224851/155708533-cb977147-61c1-4cd8-9866-5ade03f9b0b5.png">
+
+현재 별도로 height 값을 지정하지않았는데, 부모 요소인 div.parent의 높이가 두 div의 합과 같다는 것을 알 수 있다.  
+즉, 부모 요소의 height를 별도로 선언하지 않으면, "자식 요소의 height 합 = 부모 요소의 height"가 된다는 것이다.  
+만약, margin을 설정해도 그만큼 height 값이 커진다.
+
+```css
+.child {
+  width: 500px;
+  height: 50px;
+  margin-bottom: 50px;
+}
+
+.other {
+  width: 100px;
+  height: 50px;
+}
+```
+
+<img width="884" alt="스크린샷 2022-02-25 오후 8 41 42" src="https://user-images.githubusercontent.com/86224851/155709415-349cffe3-8960-4a5b-8603-4c00204d042d.png">
+
+두 자식 div의 height와 margin 값이 합쳐진 것이 div.parent의 height가 된 것을 확인할 수 있다.
+
+앞서, block은 본인의 넓이로 채워지지않는 부분을 자동으로 margin으로 채운다고 했었다.  
+이 것을 활용하여 요소의 정렬을 할 수 있다.
+
+```css
+.child {
+  width: 500px;
+  height: 50px;
+  margin-bottom: 50px;
+  margin-left: auto;
+}
+```
+
+**margin-left: auto;** 를 사용하면 오른쪽에 자동으로 생성된 margin을 왼쪽으로 몰빵하게 된다.  
+결과를 보면 쉽게 이해할 수 있다.
+
+<img width="886" alt="스크린샷 2022-02-25 오후 8 49 47" src="https://user-images.githubusercontent.com/86224851/155710466-778c0127-7a1c-483e-8dff-9e318288f2dc.png">
+
+반대로 **margin-left: auto;** 를 사용하면 왼쪽에 자동으로 생성된 margin을 오른쪽으로 몰빵하게 된다.  
+사실 이건, 기본적으로 block이 가지고있는 특성이라 자동으로 적용되고 있다고 생각하자.  
+결과는 아래와 같다.
+
+<img width="885" alt="스크린샷 2022-02-25 오후 8 57 58" src="https://user-images.githubusercontent.com/86224851/155711470-796699d0-c0ec-4ed3-a0cc-ea7366d242a6.png">
+
+그럼 만약 margin-left, margin-right를 동시에 사용하면 어떻게 될까?
+두 개를 동시에 auto로 설정하면 속기법을 이용한 margin으로 표현할 수 있을 것이다.  
+그렇다면 아래와 같은 코드가 될 것이다.
+
+```css
+.child {
+  width: 500px;
+  height: 50px;
+  margin-bottom: 50px;
+  margin: 0 auto;
+}
+```
+
+자동 생성된 margin을 좌우에 똑같이 배분한 것이다.  
+그 결과 가운데 정렬이 된 것을 확인할 수 있다.
+
+<img width="885" alt="스크린샷 2022-02-25 오후 8 59 16" src="https://user-images.githubusercontent.com/86224851/155711645-4cfc586d-2cda-4624-bd74-512ff3216f09.png">
+
+## Inline - Block

@@ -1,23 +1,37 @@
-/* .box {
-  width: 300px;
-  height: 200px;
-  padding-top: 20px;
-  border: 1px solid #212112;
-  margin-top: 30px;
-} */
+/* display는 box type을 결정해준다. */
+/* 모든 html 요소는 display 속성을 가지고 있다...당연한가? */
+/* block : 길막. block 타입의 width를 별도로 선언하지않으면 자동적으로 width = 부모의 content-box의 100%. 개발자 도구로 body와 div를 보면 쉽게 확인 가능*/
+/* 별도로 width를 선언했을 때는, 남은 공간을 자동으로 margin을 채워버림. */
 
-.box {
-  width: 300px;
-  height: 200px;
-  /* padding-left: 30px;
-  padding-top: 20px; */
-  padding: 10px 20px 30px 40px;
-  background-color: hotpink;
-  /* border: 2px solid #000; */
-  border-bottom: 2px solid #000;
-  /* border-radius: 50%; */
-  border-top-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  /* margin-bottom: 40px; */
-  margin: 20px 40px;
+body {
+  padding: 0;
+  margin: 0;
 }
+
+.parent {
+  background-color: lightgray;
+}
+
+.child {
+  background-color: orange;
+  width: 500px;
+  /* 남은 공간은 margin으로 자동으로 채워짐 */
+  /* 그런데 개발자 도구로 보면 margin이 표시가 안됨!!! 나중에 디버깅할 때 골치가 아파진다..그니까 block의 기본 성질을 잘 알아야겠지?*/
+  /* margin-left: auto; */
+  /* 오른쪽에 생기는 마진을 왼쪽으로 몰빵하겠다! */
+  /* margin-right: auto; */
+  /* 왼쪽에 생기는 마진을 오른쪽으로 몰빵하겠다! */
+  margin: 0 auto;
+  /* 이 두 개를 같이 쓰면 margin:0 auto가 되는 것 ㅋㅋ */
+  height: 50px;
+  margin-bottom: 50px;
+  /* 따로 부모의 height를 선언하지않으면, 자식 요소의 height의 합 = 부모의 height . 마진을 설정하면 그것도 포함되겠지 ㅇㅇ*/
+}
+
+.other {
+  background-color: tomato;
+  width: 100px;
+  height: 50px;
+}
+
+/* marign: 0 auto; block을 가운데에 정렬. 위아래는 0, 좌우는 auto. */
