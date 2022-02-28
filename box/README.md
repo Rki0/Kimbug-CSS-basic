@@ -320,4 +320,80 @@ width에 대한 특징은 알았으니, height를 살펴보자.
 
 <img width="885" alt="스크린샷 2022-02-25 오후 8 59 16" src="https://user-images.githubusercontent.com/86224851/155711645-4cfc586d-2cda-4624-bd74-512ff3216f09.png">
 
-## Inline - Block
+## Inline
+
+inline을 가장 잘 설명하는 단어는 "흐름"이다.  
+block과는 다르게 옆으로 주르륵 늘어서서 흐르려는 성질을 가지고 있다.  
+워드같은 곳에 글 쓰는 것과 같다고 생각하면 이해가 쉽다.  
+아래 사진을 보면, p 태그를 사용해서 텍스트를 작성하면 공간이 허용하는 곳까지 계속 이어지는 것을 볼 수 있다.  
+또한 span 태그를 사용해 특정 텍스트를 꾸미는 것도 inline 속성이므로 기존 텍스트에 전혀 영향을 주지않는다.  
+<img width="885" alt="스크린샷 2022-02-28 오전 10 02 07" src="https://user-images.githubusercontent.com/86224851/155908372-b2a90b9f-3923-46d4-850a-63d243dc2510.png">
+
+그런데 만약 주르륵 나열되고, 공간이 넘어가면 줄이 바뀌면서 또 다시 나열되는 이 속성에 흐름을 방해하는 요소가 나타나면 어떻게 될까?  
+옆으로 나열되는 것들을 방해하려면...위,아래로 뭔가 공간을 침범하는 것을 적용해보자!
+span으로 꾸며줬던 텍스트에 padding-bottom을 줘서 아래쪽 텍스트에 대한 영향을 살펴보겠다.
+
+```css
+span {
+  color: #fff;
+  background-color: #0066ff;
+  padding-bottom: 60px;
+}
+```
+
+<img width="884" alt="스크린샷 2022-02-28 오전 10 07 49" src="https://user-images.githubusercontent.com/86224851/155908653-04cd2eb8-d650-4dbe-a3df-440fca7192b7.png">
+아래쪽 텍스트를 덮어버렸지만, 텍스트들이 전혀 신경 쓰지 않고 진행되는 것을 볼 수 있다.
+
+즉, 공간으로 인식하지 않고 있다는 것이다!  
+그렇다면 margin-bottom을 입력해보자.
+
+```css
+span {
+  color: #fff;
+  background-color: #0066ff;
+  padding-bottom: 60px;
+  margin-bottom: 100px;
+}
+```
+
+<img width="885" alt="스크린샷 2022-02-28 오전 10 13 00" src="https://user-images.githubusercontent.com/86224851/155908975-aa8b7d2c-166f-4f2a-85a5-57357c06e58c.png">
+
+분명히 값을 정확히 입력이 됐는데, 개발자 도구를 통해 살펴보니 실체를 가지고 있지않는 것이 확인된다.  
+이를 통해, 상하 방향으로 변경되는 것들은 inline 속성을 가진 것들에게 전혀 영향을 주지 못하거나 제 기능을 발현하지 못하는 것을 확인 할 수 있었다.  
+따라서, inline 속성을 가지고 있는 요소들은 width, height, padding-top, padding-bottom, border-top, border-bottom, margin-top, margin-bottom 속성을 사용할 수 없다.  
+물론 left, right 방향은 흐름을 방해하지 않고 따라가는 방향이므로 적용 가능하다!!
+
+```css
+span {
+  color: #fff;
+  background-color: #0066ff;
+  padding-left: 40px;
+  padding-right: 100px;
+  margin-right: 20px;
+}
+```
+
+<img width="884" alt="스크린샷 2022-02-28 오전 10 20 12" src="https://user-images.githubusercontent.com/86224851/155909419-9ac1cbb6-ab76-4da9-b570-95fd783d7dee.png">
+좌우 방향으로는 아무 문제없이 값이 적용된다.
+
+## inline-block
+
+inline-block은 짬짜면 같은 존재다.  
+block과 inline의 좋은 점을 모아둔 것이다.  
+이 속성을 사용하면 block처럼 영역을 활용하면서 inline처럼 흐르게 할 수 있다.
+
+```css
+span {
+  color: white;
+  background-color: #0066ff;
+  display: inline-block;
+  width: 700px;
+  height: 300px;
+  padding-top: 30px;
+  margin-bottom: 20px;
+}
+```
+
+<img width="885" alt="스크린샷 2022-02-28 오전 10 26 26" src="https://user-images.githubusercontent.com/86224851/155909798-5721eed8-349d-4699-95d4-789a0bfaff46.png">
+
+inline-block으로 설정된 span 태그가 block에서 사용 가능한 속성들을 제대로 반영하면서 다른 텍스트에 영향을 주면서도, inline으로 흐름을 따라가고 있는 것을 확인 할 수 있다.
