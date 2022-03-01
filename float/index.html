@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Float</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- float를 배우는 이유 = 가로 배치를 하기 위해! block이 막아버리는 가로방향에 대한 해결법. -->
+    <!-- float를 사용하면 무슨 일이 일어날까? -->
+    <!-- 1. 집 나간 내 새끼, 찾을 길이 없네 -->
+    <!-- float를 사용하면 부모 요소는 걔를 집 나간 자식 요소로 판단함. 부모 요소의 사이즈가 줄어든다.-->
+    <!-- 만약 자식 요소가 모두 float이 된다면 부모 요소는 점점 크기가 줄어들다가 결국 높이가 없.어.짐! -->
+
+    <!-- float 적용한 애는 붕 떠오름. 그러면 비어버린 그 공간을 채우기 위해 아래에 있던 요소들이 위로 올라옴. -->
+    <!-- float을 적용한 요소 바로 뒤의 요소에 또 float을 적용하면 어떻게 될까? -->
+    <!-- 이미 붕 뜬 첫번째 요소에 막혀버린다. 그래서 자기가 갈 수 있는 가장 왼쪽 방향을 찾아간다. 그게 바로 첫번째 요소의 오른쪽이겠지? -->
+    <!-- 그래서 가로 배치라는 말이 나온 것이다. -->
+    <!-- 그렇다면...부모 요소의 크기 제한 때문에 세번 째 요소가 float 되었을 때 갈 공간이 부족하면 어떻게 될까? -->
+    <!-- 첫번째, 두번째 float은 공간이 있었으므로 가로배치, 세번째는 가로배치가 되고싶지만 자리가 없어서 다시 그 밑 라인의 가장 왼쪽으로 가게된다. -->
+    <!-- 첫번째 녀석의 바로 아래로 가게 되는 것이다. -->
+    <div class="parent">
+      <div class="child red pseudo">Child</div>
+      <div class="child yellow pseudo">Child</div>
+      <div class="child blue pseudo">Child</div>
+    </div>
+    <!-- <div class="other">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ratione
+      dignissimos, velit error distinctio maiores reprehenderit nulla quibusdam
+      animi id tenetur maxime tempora incidunt praesentium perferendis ut?
+      Repudiandae, quasi sapiente. Lorem ipsum dolor, sit amet consectetur
+      adipisicing elit. Eum non ipsam accusamus voluptatibus dolor id mollitia
+      magni rerum est, consectetur minus inventore! Quidem aliquam incidunt quo
+      accusantium id dolore sapiente? Dolorum laudantium autem quibusdam.
+      Corporis, quisquam? Impedit neque, ea ipsam tenetur harum sequi
+      repellendus. Labore ipsa perferendis facere impedit! Nobis facere, vel
+      amet quis cupiditate qui id dolor nulla eius?
+    </div> -->
+    <!-- 4. 플로트, 나만 볼 수 있어요 -->
+    <!-- 텍스트나 이미지 같은 인라인 요소들은 플로트의 존재를 인식하기 때문에 이상현상이 발생하는 것. -->
+    <!-- 텍스트가 플로트된 요소를 뚫고 가지 못함. -->
+
+    <!-- 어떻게 하면 float의 이런 레이아웃 붕괴를 해결할 수 있을까? -->
+    <!-- 1. 부모 요소에게 overflow: hidden; 사용하기 -->
+    <!-- 이렇게하면 부모 요소가 height가 0이 되었더라도 다시 자식 요소를 찾아냄. -->
+    <!-- 2. Clearfix. -->
+    <!-- claer 속성은 display가 block인 녀석에게만 사용할 수 있음. -->
+    <!-- float으로 인해 망가진 속성을 고치기위한 속성. 이게 정석적인 방법. -->
+    <!-- 이 속성을 사용하는 녀석에게 "너 옆에 누가 float을 가지고 레이아웃에 변칙을 주는지 인식할 수 있게 해줄게." 라고 하는 것. -->
+    <!-- left로 float된 녀석이 있으면 그 다음 요소는 붕 뜬 float 요소 아래로 가게 된다. 이 때 clear:left;를 주면 왼쪽에 float된 요소가 있다는 걸 인식시킬 수 있다. -->
+    <!-- 그러면 마치 float 요소를 인식해서 float 아래로 내려가게 된다.(원래 있던 자리로 돌아가게된다.) -->
+    <!-- 한마디로 float:left의 영향을 받지 않겠다! 는 것이다. -->
+
+    <!-- 이렇게 되면 도대체 뭐가 좋은거냐? -->
+    <!-- 부모 요소는 float된 자식 요소의 height 값이 없어지는데, 두번째 자식 요소가 clear를 사용하고 있으면 두번째 자식 요소를 기준으로 height를 산정해서 -->
+    <!-- float인 자식 요소가 있음에도 불구하고 부모 요소가 올바르게 height 값을 표시할 수 있게 되는 것이다!! -->
+
+    <!-- left, right, both를 값으로 가질 수 있다. -->
+    <!-- both는 left,right 모두의 영향을 받지않겠다는 것. -->
+
+    <!-- 그런데 위 방법은 HTML 요소에 스타일을 적용해서 해결하는 것이라서 마크업 문서가 더러워질 가능성이 있음. -->
+    <!-- 따라서 CSS에 직접 수정하는 방식을 사용하는 것도 방법. -->
+    <!-- 바로 Pseudo element(가상 요소)를 생성해서 clear를 적용하는 것이다. -->
+    <!-- 가상 요소는 각 요소 당 2개씩 만들 수 있음 -->
+    <!-- ::before, ::after -->
+    <!-- 요소 앞에 생성되냐, 뒤에 생성되냐의 차이 -->
+  </body>
+</html>
