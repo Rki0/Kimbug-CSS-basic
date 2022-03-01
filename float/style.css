@@ -1,0 +1,69 @@
+.parent {
+  width: 400px;
+  background-color: #eff2f7;
+  /* overflow: hidden; */
+  /* 이걸 사용함으로써 실체가 있는 height로 다시 회복함. 텍스트가 제대로 height를 인식하고 아래로 이동하게 됨.*/
+}
+
+.parent::after {
+  content: "";
+  display: block;
+  clear: left;
+}
+
+.child {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  margin-left: 100px;
+  color: #fff;
+}
+
+.red {
+  float: left;
+  /* 빨강이가 위로 붕 떠올랐으므로 노랑이가 빨강이의 원래 공간이었던 곳으로, 즉, 빨강이 밑으로 들어감. 부모의 height도 달라짐 */
+
+  /* 2. 블록으로 신분 상승 */
+  /* float을 설정하면 요소의 display 속성이 뭐든간에 block으로 상승됨. block으로 사용할 수 있는 속성을 사용 가능! */
+  /* 3. 길막을 못해 슬픈 블록아! */
+  /* 그런데..길막을 하지 못하는 block임 ㅋㅋ */
+  /* width 설정을 하지않으면 자신이 가진 content 길이 만큼의 width를 가짐. block처럼 쭉 늘어나 있지않음.*/
+  /* 자동으로 마진을 채웠던 성질도 발생하지않음! */
+  background-color: red;
+  /* opacity: 0; */
+  /* 투명도를 설정하는 속성. 0이면 완전 투명. 1이면 완전 잘 보임. */
+}
+
+.yellow {
+  background-color: yellow;
+  float: left;
+  /* float: left; */
+  /* 얘까지 float하니까 이번엔 파랑이랑 노랑이가 위 상황과 같은 동작을 함. */
+}
+
+.blue {
+  background-color: blue;
+  float: left;
+  /* 이 때 parent의 height가 0이 되어버린 것을 확인 가능. 레이아웃의 붕괴.. */
+}
+
+.other {
+  background-color: black;
+  color: white;
+  clear: left;
+}
+
+.pseudo::before {
+  /* inline 속성을 가짐 */
+  content: "🥳";
+  margin-right: 20px;
+  font-size: 30px;
+}
+
+.pseudo::after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  background-color: pink;
+}
