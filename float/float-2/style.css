@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.card {
+  max-width: 531px;
+}
+
+/* 매번 부모 요소마다 ::after를 사용해서 가상 요소 넣어주기 귀찮다..! */
+/* 그래서 .clearfix 같은 클래스를 만들어놓고 거기에 ::after를 사용해놓는 것이 편함 */
+/* .clearfix::after {
+  content: "";
+  display: block;
+  clear: left;
+} */
+/* 이렇게 하면 clearfix 클래스를 붙여주는 것만으로 쉽게 float 컨트롤을 할 수 있겠지? */
+
+.card::after {
+  content: "";
+  display: block;
+  clear: left;
+}
+
+/* margin은 한쪽 방향으로 작성하는게 클린 코드를 만드는 방법! */
+
+.user-image {
+  float: left;
+  margin: 20px 20px 56px 20px;
+}
+
+.user-image img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.mail-headline {
+  float: left;
+  margin: 20px 0px 12px;
+}
+
+.mail-headline h1 {
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 4px;
+  line-height: 20px;
+}
+
+.mail-headline p {
+  color: #afb3b9;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.content {
+  float: left;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #79818b;
+  display: block;
+  margin-bottom: 20px;
+}
