@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+a {
+  font-size: 18px;
+  line-height: 20px;
+  color: #8492a6;
+  text-decoration: none;
+}
+
+.tab-menu {
+  list-style: none;
+  padding-left: 0;
+  border-bottom: 1px solid #e5eaef;
+  max-width: 540px;
+}
+
+.tab-menu::after {
+  content: "";
+  display: block;
+  clear: left;
+}
+
+/* 가로 배치를 하고 싶은데,
+inline은 margin 등을 활용하기 힘드니까 별로..
+inline-block, float 중에 하나를 써보자 */
+
+.tab-menu-item {
+  float: left;
+  margin-right: 16px;
+}
+
+.tab-menu-item a {
+  /* li가 아니라 a에 padding을 주는 것은 사용자가 클릭할 수 있는 면적을 넓히기 위함 */
+  /* 만약 li에 padding을 준다면 a는 content 부분을 클릭해야만 작동하게 된다. */
+  padding: 16px 20px;
+  /* a 태그는 inline 요소라서 width, height가 먹히지 않음. */
+  /* 따라서 li에 padding을 준 것처럼 되지않고, content 크기에 맞춰 ul의 height가 줄어듦. */
+  display: block;
+}
+
+.tab-menu-item.active a {
+  font-weight: 500;
+  color: #2860e1;
+  border-bottom: 2px solid #2860e1;
+}
+
+/* ▼ WHERE YOUR CODE BEGINS */
