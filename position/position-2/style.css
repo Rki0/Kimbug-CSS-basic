@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.card {
+  position: relative;
+  top: 30px;
+  left: 7px;
+  max-width: 400px;
+  max-height: 354px;
+  box-shadow: 1px 1px #7d858f;
+}
+
+.trip-img {
+  position: relative;
+}
+
+/* 보통은 부모 요소 width를 정하고 자식요소에는 width:100%, height:auto를 쓰는게 정석 */
+
+.trip-img img {
+  width: 400px;
+  height: 240px;
+}
+
+.backward,
+.forward {
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  /* 꼭짓점 기준이라서 약간 처진 모습을 보인다 */
+  transform: translateY(-50%);
+  /* traslate는 자기 자신을 기준으로하기 때문에 50%는 자신의 절반! */
+  /* 그래서 가운데 배치할 때 유용 */
+  border: none;
+  cursor: pointer;
+}
+
+.backward {
+  left: 0px;
+  background-image: url(./assets/icon-backward.svg);
+}
+
+.forward {
+  right: 0px;
+  background-image: url(./assets/icon-forward.svg);
+}
+
+.trip-info {
+  padding: 12px 16px;
+  width: 400px;
+  height: 114px;
+  position: relative;
+}
+
+.what-trip {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+  color: #1f2d3d;
+  margin-bottom: 2px;
+}
+
+.company {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #7d858f;
+}
+
+.how-many-people {
+  position: absolute;
+  top: 78px;
+  left: 252px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: 4px;
+  color: #273444;
+}
+
+.money {
+  position: absolute;
+  top: 78px;
+  left: 280px;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 24px;
+  color: #2860e1;
+}

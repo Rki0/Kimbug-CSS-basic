@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: black;
+}
+
+.user-info {
+  max-width: 240px;
+  height: 56px;
+  padding: 8px 12px;
+  background-color: white;
+  border: 1px solid #e5eaef;
+  border-radius: 4px;
+}
+
+.user-profile {
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+/* 이미지는 inline이지만 파일 자체의 크기가 있기 때문에 width,height가 먹힌다 */
+/* 다만, 사소한 오류를 줄이기 위해 display: block을 선언해주자 */
+img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* box-sizing을 border-box로 설정했기 때문에 width,height를 border를 고려해서 만들어줌 */
+.online {
+  width: 12px;
+  height: 12px;
+  background-color: #21d891;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+}
+
+.user-name {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  position: absolute;
+  top: 16px;
+  left: 64px;
+}
