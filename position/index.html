@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>position</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- position의 종류에는 static, relative, absolute, fixed, sticky가 있다. -->
+    <!-- position 타입에 따라 기준점이 달라진다 -->
+    <!-- 1. static -->
+    <!-- 모든 요소의 기본 position 값. 그냥 기본 값 -->
+    <div class="grandparent">
+      <div class="parent">
+        <div class="child red">Child</div>
+        <div class="child yellow">Child</div>
+        <div class="child blue">Child</div>
+      </div>
+    </div>
+
+    <!-- 2. relatvie -->
+    <!-- 이동의 기준점이 본인이 원래 있던 자리이다. 왼쪽위 모서리가 기준.-->
+    <!-- float와 비슷하게 부모 요소로부터 붕 뜸. 다만 레이아웃의 붕괴는 없으므로 걱정하지 말자. -->
+    <!-- 본인의 원래 위치를 기억하고 있기 때문. 부모, 형제 요소들 또한 이 요소의 원래 위치를 기억하기 때문. -->
+    <!-- 3. absolute -->
+    <!-- 자신이 기준으로 삼을 요소를 선택하여 작동. -->
+    <!-- position이 static이 아닌 요소의 왼쪽위 모서리를 기준으로 하여 작동. -->
+    <!-- 보통은 relative를 사용. absolute를 사용하면 기준이 될 요소도 absolute 조건을 만족해야하니까 꼬여버림. -->
+    <!-- 사용시 float과 유사한 현상 발생. 집 나간 내 새끼, 찾을 길 없네..블록으로 신분 상승..길막을 못해 슬픈 블록아..가 발생한다! -->
+    <!-- 부모 요소가 자식 요소의 높이를 인식하지 못하고, display가 block이 되며, 마진 자동 생성이 없어서 길막도 없음. -->
+    <!-- float과 다른 점은 텍스트나 인라인 요소들이 얘네를 인식하지 않는다는 것. 그냥 뚫고 지나감. -->
+    <!-- 4. fixed -->
+    <!-- absolute와 같은 현상 발생. 다른 점은 얘는 viewport를 기준으로 자신을 이동시킴.-->
+    <!-- 브라우저 창의 전체 크기를 viewport라고 함. -->
+    <!-- 따라서 화면이 스크롤로 내려하는 상태가 될정도로 크기가 크다고해도 그 자리에 고정되어 있음. 스크롤해도 안 움직임. -->
+
+    <!-- top, bottom, right, left 사용할 때 좌를 사용하면 우는 쓰지말고, 상을 썼다면 하는 쓰지않는식으로 하자...안그러면 꼬여버림. -->
+
+    <!-- z-index -->
+    <!-- 요소들의 수직방향(화면을 뚫고 나오는 방향)으로의 레벨을 지정. -->
+    <!-- 값이 클수록 더 위에 보여짐. -->
+  </body>
+</html>
