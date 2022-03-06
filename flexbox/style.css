@@ -1,0 +1,64 @@
+.parent {
+  display: flex;
+  /* 부모 요소에 flex를 선언해야됨! */
+  flex-direction: row;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* flex-start는 시작 부분으로 전부 정렬됨.(flex-direction이 row라면 왼쪽으로, row-reverse라면 오른쪽으로)*/
+  /* flex-end는 끝 부분으로 전부 정렬. row라면 오른쪽, row-reverse라면 왼쪽. */
+  /* center는 가운데로 정렬됨. */
+  /* space-between은 요소들 사이에 간격을 일정하게 만들어서 정렬함. */
+  /* space-around는 요소들 각각의 양옆(around)의 간격을 일정하게 만들어서 정렬함. */
+  /* 그래서 between은 양 끝 요소가 양 끝으로 붙지만, around는 양 끝 요소가 양 끝에 붙지않고 계산된 간격만큼 떨어져있음 */
+  /* flex-direction을 column으로 하면 main axis가 달라지므로 위에서 설명한 속성이 그대로 수직축 방향으로 적용되서 보여지겠죠? */
+
+  align-items: flex-end;
+  /* center는 가운데 정렬. */
+  /* flex-start, flex-end는 각각 위로 정렬, 아래로 정렬(row 메인 축 기준) */
+  /* space-between, space-around 같은 경우에는 적절하지않은 값. 이는 요소와 요소 사이의 간격을 만드는 녀석인데 cross axis를 기준으로는 요소와 요소를 정렬하지 않기 때문. */
+
+  /* align-content 속성이 유효하려면 flex-wrap 속성이 wrap 값을 가져야함. */
+  /* wrap을 사용하면서 align-items를 사용하면 이상함. */
+  /* 두 개로 갈라짐. 같은 높이 축에 걸려있는 애들끼리 묶여서 칸이 큼지막하게 나눠져버림... */
+  /* 하나의 줄에서 요소가 둘이 아니기 때문에 그런 것. */
+  /* wrap 때문에 그럼. 한 줄에 채우지 못하면 여러 줄을 만들어버리기 때문 */
+  /* 즉, align-items는 요소들이 놓여있는 하나하나의 줄을 기준으로 작용한다는 것을 알 수 있음. */
+  /* 따라서, 전체를 기준으로, 전체의 cross axis를 기준으로 정렬하고 싶다 할 때 사용하는 속성이 align-content인 것이다. */
+
+  align-content: center;
+  /* 이렇게 사용하면 하나하나의 줄이 아닌 전체의 큰 cross axis를 기준으로 모든 요소를 이동시키기 때문에 nowrap에서의 align-items처럼 사용 가능 */
+  /* 또한, 사용하지 못했던 space-between이나 space-around도 적용 가능해짐. 전체 cross axis를 기준으로 하기 때문.*/
+
+  flex-wrap: wrap;
+  /* width: 600px; */
+  width: 600px;
+  height: 1000px;
+  margin: 0 auto;
+  background-color: #eff2f7;
+}
+
+.child {
+  width: 300px;
+  /* width: 200px; */
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+}
+
+.red {
+  background-color: red;
+  /* order: 3; */
+  /* flexbox를 사용할 경우 사용할 수 있는, 마크업한 요소들의 순서를 조작할 수 있는 속성. */
+}
+
+.yellow {
+  background-color: yellow;
+  /* order: 1; */
+}
+
+.blue {
+  background-color: blue;
+  /* order: 2; */
+}
