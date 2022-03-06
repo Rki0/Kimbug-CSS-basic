@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flexbox</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- 정렬의 끝판왕 -->
+    <!-- 굉장히 잘 만들어졌기 떄문에 사용법을 아는 것만으로 충분 -->
+    <!-- 1. 나, 플렉스 박스 쓸거임(단호) -->
+    <!-- flexbox를 사용하려면 display:felx 를 선언해줘야한다. -->
+    <!-- flex or inline-flex를 사용 가능 -->
+    <!-- flex는 block고 비슷하지만 블럭은 할 수 없는 기능이 있다. inline-flex는 inline-block과 비슷하지만 그것이 할 수 없는 기능이 있다. -->
+    <!-- 누구한테 선언해야할까? 내가 정렬을 하고자하는 요소를 감싸고 있는 부모 요소에 선언해한다! -->
+
+    <!-- 2. 가로 정렬? 세로 정렬? -->
+    <!-- 어느 방향으로 정렬할 건지 알려줘야하는데 이 때 사용하는게 flex-direction이다. -->
+    <!-- row(가로), row-reverse, column(세로), column-reverse 값을 사용 가능 -->
+    <!-- axis 개념을 꼭 같이 알아두도록하자! flex-direction을 사용하면 생기는 가상의 축-->
+    <!-- flex-direction의 방향에 따라서 main axis가 생김. row면 가로가, column이면 세로가 main. 왼쪽에서 오른쪽, 위에서 아래.-->
+    <!-- main과 수직 방향으로 cross axis. row면 위에서 아래. column이면 왼쪽에서 오른쪽.-->
+    <!-- reverse가 붙는 애들은 뭔가? 다 똑같은데 main이 row면 오른쪽에서 왼쪽. 이때 cross는 위에서 아래. -->
+    <!-- column이면 main은 아래에서 위. cross는 왼쪽에서 오른쪽. -->
+    <!-- 즉, main만 바뀜 -->
+
+    <!-- 3. 무조건 한 줄 안에 다 정렬? -->
+    <!-- flex-wrap? 어떻게든 한 줄 안에 모든 요소를 정렬할 것인지, 아니면 상황에 따라 여러 줄에 정렬할 것인지 정하는 것 -->
+    <!-- nowrap과 wrap 값 사용 가능 -->
+    <!-- nowrap은 감싸지(wrap)않고 자식의 사이즈를 강제로 줄여서라도 한 줄로 정렬해버린다. -->
+    <!-- 에를들어, 부모가 600px width고 자식요소 3개가 200px width이면, 3개를 어떻게든 600px 안에 넣어버림. -->
+    <!-- 이건 float에서 상상할 수 없는 일 ㅋㅋ -->
+    <!-- wrap을 사용하면 한 줄에 모두 정렬하기에 공간이 넉넉치 않으면 여러 줄을 만들어 버림. -->
+
+    <!-- main axis를 기준으로 정렬을 하고싶을 때는 justify-content 속성을 사용하면 된다. -->
+    <!-- cross axis를 기준으로 정렬을 하고 싶을 때는 align-content나 align-items 속성을 사용하면 된다. -->
+
+    <div class="parent">
+      <div class="child red">child</div>
+      <div class="child yellow">child</div>
+      <div class="child blue">child</div>
+    </div>
+  </body>
+</html>
