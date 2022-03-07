@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.card {
+  max-width: 531px;
+  height: 120px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.card-user {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.card-content {
+  margin-left: 20px;
+}
+
+.card-content h1 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1f2d3d;
+  margin-bottom: 4px;
+}
+
+.card-content strong {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #afb3b9;
+  margin-bottom: 12px;
+}
+
+.card-content p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #79818b;
+}

@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.tab-menu {
+  max-width: 540px;
+  height: 54px;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  /* 사실 이 아래에 있는 3개의 속성과 그 값들은 flex를 선언하는 순간 디폴트값으로 발생하므로 flex만 적어도 된다! */
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid #e5eaef;
+}
+
+.tab-menu-item {
+  height: 54px;
+  margin-right: 16px;
+}
+
+.tab-menu-item.active {
+  border-bottom: 2px solid #2860e1;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 16px 20px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #8492a6;
+}
+
+.tab-menu-item.active a {
+  color: #2860e1;
+}
