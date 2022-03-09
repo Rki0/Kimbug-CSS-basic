@@ -1,0 +1,127 @@
+/* 반응형 웹사이트를 제작할 때 보통 작은 화면부터 제작을 시작한다. */
+/* 모바일 크기에서부터 제작을 시작하는 것이 알아보기 편하기 때문 */
+/* media 사용할 때도 점점 키워나가는게 생각하기 편함 */
+
+/* flex를 사용해서 block 효과에 정렬까지 잡을 수 있다 */
+/* 꼭 block을 쓰려고만 하지말고 한번 더 고민해보자 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+a {
+  text-decoration: none;
+}
+
+.landing {
+  background-image: url("./assets/img-bg.jpeg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.landing-title {
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.landing-title strong {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.landing-link {
+  line-height: 1;
+  color: #fff;
+}
+
+.banner-title a {
+  color: #1f2d3d;
+}
+
+/* ▼ WHERE YOUR CODE BEGINS */
+
+.banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffc82c;
+}
+
+.banner-title a {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 64px;
+  font-size: 15px;
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 100vh;
+  padding: 0 20px;
+}
+
+.landing-title {
+  margin-bottom: 24px;
+  font-size: 32px;
+  text-align: right;
+}
+
+.landing-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #fff;
+  border-radius: 16px;
+  font-size: 15px;
+  width: 160px;
+  height: 52px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (min-width: 768px) {
+  /* 바뀌는 부분만 적어주면 된다 */
+  .banner {
+    top: 0;
+    /* 이전에 선언했던 bottom:0의 효력을 없애기 위함 */
+    bottom: auto;
+  }
+
+  .banner-title a {
+    height: 80px;
+    font-size: 18px;
+  }
+
+  .landing {
+    align-items: center;
+  }
+
+  .landing-title {
+    margin-bottom: 32px;
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .landing-link {
+    width: 180px;
+    height: 56px;
+    font-size: 18px;
+  }
+}
