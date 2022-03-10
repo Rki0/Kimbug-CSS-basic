@@ -1,0 +1,28 @@
+html {
+  font-size: 20px;
+}
+
+body {
+  /* font-family: "Poppins"; */
+  font-family: serif;
+  /* 내 컴퓨터에 있는 가장 기본적인 serif체를 씀 */
+}
+
+.parent {
+  font-size: 20px;
+}
+
+p {
+  /* font-size: 3rem; */
+  /* font-size: 1.5rem; */
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: rgba(0, 102, 255, 0.5);
+  text-align: left;
+  /* text-indent: -100px; */
+  /* text-transform: uppercase; */
+  /* text-decoration: line-through; */
+  font-style: italic;
+}
