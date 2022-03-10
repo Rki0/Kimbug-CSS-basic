@@ -1,0 +1,53 @@
+@font-face {
+  /* 앞으로 사용할 폰트의 이름을 정함 */
+  /* 여기서 정한대로 이름을 사용해야함 */
+  font-family: "Kimbug";
+  /* 이 폰트는 normal 상태의 폰트이므로 지정해줌 */
+  /* 간혹 italic 상태 전용 폰트도 있으므로 조심 */
+  font-style: normal;
+  font-weight: 400;
+  /* 내가 사용할 폰트를 지정 */
+  /* 각각의 브라우저마다 지원하는 폰트의 확장자가 다르기 때문에 format을 적어줘야함 */
+  src: url("./assets/font/NanumSquareRoundR.eot");
+  src: url("./assets/font/NanumSquareRoundR.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/font/NanumSquareRoundR.woff2") format("woff2"),
+    url("./assets/font/NanumSquareRoundR.woff") format("woff"),
+    url("./assets/font/NanumSquareRoundR.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Kimbug";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./assets/font/NanumSquareRoundL.eot");
+  src: url("./assets/font/NanumSquareRoundL.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/font/NanumSquareRoundL.woff2") format("woff2"),
+    url("./assets/font/NanumSquareRoundL.woff") format("woff"),
+    url("./assets/font/NanumSquareRoundL.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Kimbug";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/font/NanumSquareRoundB.eot");
+  src: url("./assets/font/NanumSquareRoundB.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/font/NanumSquareRoundB.woff2") format("woff2"),
+    url("./assets/font/NanumSquareRoundB.woff") format("woff"),
+    url("./assets/font/NanumSquareRoundB.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Kimbug";
+  font-style: normal;
+  font-weight: 800;
+  src: url("./assets/font/NanumSquareRoundEB.eot");
+  src: url("./assets/font/NanumSquareRoundEB.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/font/NanumSquareRoundEB.woff2") format("woff2"),
+    url("./assets/font/NanumSquareRoundEB.woff") format("woff"),
+    url("./assets/font/NanumSquareRoundEB.ttf") format("truetype");
+}
