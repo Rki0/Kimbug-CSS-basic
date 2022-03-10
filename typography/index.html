@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typography</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- 타이포그래피는 텍스트를 예쁘게 디자인하는 것을 말함. -->
+    <!-- 타이포그래피를 설정할 때 많이 사용하는 속성 -->
+
+    <!-- font-size는 글씨의 크기를 나타낸다. -->
+    <!-- px, em, rem 단위가 있다. -->
+    <!-- px을 주로 사용함 -->
+    <!-- px은 절대 단위(Absolute unit)이다. 어딜가든 1px, 2px...은 똑같은 크기를 가짐 -->
+    <!-- em, rem은 상대 단위(Relative unit)이다. 어디에 있느냐에 따라 값이 달라짐 -->
+    <!-- em = equal to capital M. 대문자 M의 크기를 기준으로 함. 쉽게 얘기하면 실제로 적용되어있는 폰트 사이즈를 1em으로 본다는 것.-->
+    <!-- 예를들어, 개발자 도구로 font-size를 확인해봤더니 24px로 뜬다면 24px = 1em 이 되는 것. -->
+    <!-- .parent에 20px을 주고 p에 1em을 주면 1em은 20px을 의미하게 되는것. -->
+    <!-- rem = root em. root는 html 자체를 뜻함. html에 적용된 font-size를 1 rem으로 본다는 뜻.-->
+    <!-- html태그에 20px을 줬다면 3rem은 60px이 됨. -->
+
+    <!-- line-height는 줄 간격을 조절할 때 사용. -->
+    <!-- px, em, rem 단위가 있다. -->
+    <!-- em을 주로 사용함. 적용된 폰트 사이즈에 대하여 얼만큼 간격을 만들것인지가 주 목적이기 때문. -->
+    <!-- line-height에서 em 단위로 표현할 때는 em을 적지 않는 것이 관례라고 한다. px, rem은 적어줘야함. -->
+    <!-- html에 font-size를 20px로 주고 p에서 font-size를 1 rem으로 했다고 치면, line-height 1.5가 30px을 의미하게됨. -->
+    <!-- line-height가 얼마가 되던 텍스트는 항상 줄간격의 가운데에 존재한다! 그래서 텍스트를 가운데 정렬할 때 사용하기도 함.-->
+
+    <!-- letter-spacing는 텍스트 간격을 조절할 때 사용.-->
+    <!-- px, em 단위가 있다 -->
+    <!-- em을 주로 사용함. 해당 텍스트에 비례해서 몇 퍼센트를 줄일 것이냐가 주 목적이기 때문. -->
+    <!-- 여기서는 em을 생략하면 안된다! -->
+    <!-- 음수를 쓰면 간격이 줄어들고, 양수를 쓰면 늘어난다. -->
+
+    <!-- font-family는 폰트의 서체(스타일?)을 선택하는 속성 -->
+    <!-- 3가지 정도의 사용법이 있다. -->
+    <!-- font-family: "Poppins"; = Poppins 폰트를 사용해라..끝.. -->
+    <!-- font-family: "Poppins", sans-serif; = Poppins 폰트를 사용해라. 만약 그게 없다면 아무런 sans-serif 서체 중 하나를 사용해. -->
+    <!-- font-family: "Poppins", "Roboto",sans-serif; = Poppins 폰트를 사용해라. 그게 없으면 Roboto 폰트를 써. 만약 다 없다면 아무런 sans-serif 서체 중 하나를 사용해. -->
+    <!-- serif는 약간 명조체..글씨가 약간 삐죽삐죽 나와있는 것. sans-serif는 매끄러운 글씨체.돋움, 고딕 느낌?굵기가 일정 -->
+
+    <!-- font-weight는 폰트의 굵기를 조절 -->
+    <!-- 100씩 커지는 숫자를 적어서 값을 표현 -->
+    <!-- 300은 Light. 400이 Regular체. 700은 Bold체. 900은 최고 두꺼운 폰트. -->
+    <!-- 400, 700을 주로 사용. -->
+
+    <!-- color는 폰트 색상을 결정함 -->
+    <!-- 사용하는 방식이 3가지가 있음 -->
+    <!-- hex, rgb, rgba -->
+    <!-- hex는 #0066ff 처럼 #에 6자리의 숫자와 알파벳으로 표현 -->
+    <!-- rgb는 rgb(0, 0 , 0)처럼 나타냄 -->
+    <!-- rgba는 rgba(0, 0, 0, 0.5)처럼 나타냄. 마지막 숫자는 투명도를 조절. 1은 완전 불투명(투명이 아니다), 0은 완전 투명. -->
+
+    <!-- 타이포그래피를 설정할 때 부가적으로 쓰는 속성들 -->
+    <!-- text-align 텍스트를 정렬할 때 사용 -->
+    <!-- 주로 left, right, center를 사용. 왼쪽, 오른쪽, 가운데 정렬. -->
+
+    <!-- text-indent는 들여쓰기를 할 때 사용 -->
+    <!-- 음수로 쓰면 앞으로 나가고, 양수로 쓰면 뒤로 당겨짐 -->
+    <!-- 태그 하나의 첫 줄에 적용됨. p 태그 내부에서 br로 띄어쓰기를 해도 다음 단락부터는 적용 안됨. -->
+
+    <!-- text-transform은 텍스트를 변형시킬 때 사용 -->
+    <!-- 영어 알파벳 텍스트에 유효한 속성 -->
+    <!-- none, capitalize, uppercase, lowercase -->
+    <!-- 소문자를 대문자로 바꾸는 등의 기능 -->
+    <!-- none은 입력한 그대로. capitalize는 띄어쓰기마다 대문자. uppercase는 모든 문자가 대문자. lowercase는 모든 문자가 소문자이기를 원할 때 사용 -->
+
+    <!-- text-decoration은 텍스트에 줄을 긋는 것과 관련된 속성 -->
+    <!-- none, underline, line-through, overline -->
+    <!-- none은 아무것도 없는 것. underline은 밑줄, line-through는 텍스트 중간에 취소선, overline은 텍스트 위에 줄이 생김 -->
+    <!-- 보통 a 태그 밑줄을 제거할 때 사용 -->
+
+    <!-- font-style는 폰트의 형태를 지정. 서체랑은 다름 -->
+    <!-- normal, italic, oblique -->
+    <!-- italic은 문자가 기울어짐. oblique는 기울어짐...? 사실 큰 차이가 없어서 italic을 많이 사용 -->
+    <!-- em 태그를 사용할 때 기본값으로 italic이 적용되므로 normal로 바꿀 때 주로 사용 -->
+
+    <div class="parent">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis deleniti
+        odio voluptates unde et voluptatum dignissimos, fuga illo dolorum id
+        tempora assumenda, quibusdam ab nesciunt ullam nemo ipsam itaque porro?
+        <!-- <br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod commodi
+        doloribus consectetur voluptates enim magnam sint aliquam, tenetur
+        maxime, vitae suscipit quibusdam omnis beatae dolor odio dignissimos
+        optio, deleniti doloremque!
+      </p> -->
+      </p>
+    </div>
+  </body>
+</html>
