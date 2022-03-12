@@ -1,0 +1,152 @@
+.like-button {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.card {
+  display: flex;
+  width: 840px;
+  padding: 24px;
+}
+
+.sr-only {
+  /* 치명적 단점이 있음..스크린 리더도 얘를 인식을 안 해버림 */
+  /* display: none; */
+  position: absolute;
+  z-index: -100;
+  width: 1px;
+  height: 1px;
+  /* width나 height를 0px로 줘버리면 display: none; 처럼 인식하므로 1px은 줘야함 */
+  overflow: hidden;
+  opacity: 0;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  border-radius: 6px;
+  background-image: url("../assets/img-house.jpeg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  overflow: hidden;
+  margin-right: 24px;
+  position: relative;
+}
+
+.card-image .like-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  background-image: url("../assets/icon-favorite.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 24px 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.card-content {
+  /* card-content에는 width를 주지않아서 가장 길게 영역을 차지하는 요소의 width를 따라간다 */
+  /* 그걸 원치않고, 부모 요소의 크기에 맞춰서 요소들이 끝까지 채워주면 좋겠다면 flow-grow를 사용한다 */
+  /* 정수값을 사용할 수 있고, 0은 절대로 키우지않곘다. 1부터는 남는 자리 채우겠다는 의미. */
+  flex-grow: 1;
+}
+
+.plus-badge {
+  display: inline-block;
+  background: #92174d;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 1px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  margin-right: 6px;
+}
+
+.property-type span {
+  font-size: 16px;
+  line-height: 1.25;
+  color: #7d858f;
+}
+
+.property-rate {
+  font-size: 16px;
+  line-height: 1.25;
+  color: #7d858f;
+}
+
+.property-rate strong {
+  color: #151b26;
+  font-weight: 400;
+}
+
+.property-rate span {
+  color: #7d858f;
+}
+
+.property-rate::before {
+  content: "";
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url(../assets/icon-star.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.card-title {
+  color: #151b26;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.property-detail {
+  font-size: 14px;
+  line-height: 1.1428571429;
+  color: #7d858f;
+}
+
+.property-detail dd span::after {
+  content: "・";
+  /* 가상 클래스는 기본적으로 inline이지만 left, right에는 값을 줄 수 있으므로 굳이 block으로 안 만들어줘도 됨 */
+  margin: 0 8px;
+}
+
+.property-detail dd span:last-child::after {
+  content: "";
+  margin: 0;
+}
+
+.property-detail div:first-child {
+  margin-bottom: 8px;
+}
