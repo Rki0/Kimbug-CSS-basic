@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  color: white;
+  background-color: #0066ff;
+  /* 변화를 주고싶은 요소에 transition 속성 기입 */
+  /* transition: property duration [timing-function] [delay]; */
+  /* transition: font-size 2500ms; */
+  /* 배경색은 언급 안해줬으므로 바로 바뀌어버림 */
+  /* 모든 속성에 transition 효과를 넣고자 한다면 property에 all을 사용 */
+  transition: all 2500ms cubic-bezier(0.07, 1.48, 0.86, -0.56) 1000ms;
+  /* 여러 속성을 다양한 값으로 개별적으로 선언하고자 한다면 아래와 같이 */
+  /* transition: font-size 1000ms ease-out,
+    background-color 2000ms cubic-bezier(0.07, 1.48, 0.86, -0.56); */
+}
+
+.box1.active {
+  background-color: tomato;
+  font-size: 30px;
+}
+
+/* animation part */
+
+.box {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  color: white;
+  background-color: #0066ff;
+  /* 적용하고자 하는 애니메이션 이름을 적어줘야함 */
+  animation-name: move-box;
+  /* 애니메이션의 지속 시간 지정 */
+  animation-duration: 2000ms;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1000ms;
+  animation-iteration-count: 3;
+  /* 이 때 delay는 애니메이션이 처음 시작할 때만 적용된다는 점 기억! */
+  /* 무한반복하고 싶으면 infinite 값을 지정 */
+  /* animation-iteration-count: infinite; */
+  animation-direction: alternate;
+  /* alternate 값을 사용하면 애니메이션이 끝나고 다시 원래 자리로 뿅 돌아와서 시작되는게 아니라, 진행됐던 그대로 다시 역재생해서 돌아옴 */
+}
+
+/* from(시작)과 to(끝)을 지정 */
+/* 변화해야하는 속성에 대해서만 적어줌 */
+/* 애니메이션이 끝나면 다시 원래 상태로 돌아옴 */
+/* 만약, 애니메이션을 넣을 요소에 디폴트값을 넣어놓지않으면 애니메이션이 끝나는 순간 지정해놨던 속성들이 사라지므로 적용할 요소에 디폴트 값을 넣어놓자 */
+@keyframes move-box {
+  from {
+    top: 0;
+    background-color: #0066ff;
+  }
+
+  to {
+    top: 200px;
+    background-color: #ff4949;
+  }
+}
+
+/* % 형식으로 해줘도 됨. 0% 진행되었을 때, 50, 100% 진행되었을 때의 애니메이션을 의미. 위에꺼보다 좀 더 디테일함 */
+@keyframes name {
+  0% {
+  }
+
+  50% {
+  }
+
+  100% {
+  }
+}
